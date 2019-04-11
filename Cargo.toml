@@ -1,0 +1,24 @@
+[package]
+name = "pubsub"
+version = "0.1.0"
+authors = ["Jonas Hagstedt <hagstedt@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+sonr = { git = "https://github.com/hagsteel/sonr" }
+serde = { version = "1.0.90", features = ["derive"] }
+bytes = "0.4.12"
+serde_json = "1.0.39"
+
+[profile.release]
+debug = false
+lto = true 
+panic = 'abort'
+
+[[bin]]
+name = "send"
+path = "src/bench/send.rs"
+
+[[bin]]
+name = "receive"
+path = "src/bench/receive.rs"
